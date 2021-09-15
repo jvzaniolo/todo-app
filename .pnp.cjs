@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/node", "npm:16.9.1"],
             ["@types/react", "npm:17.0.21"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:b710176fa9295a53c1d4bceea81b71d026a6827da20822637f11910e792bafdbf396ea9c74b79af90c8020bebd558b0c83a1a3a87234a92f29b87cdc05e47c21#npm:11.1.2"],
@@ -5370,6 +5371,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["todo-app", "workspace:."],
+            ["@types/node", "npm:16.9.1"],
             ["@types/react", "npm:17.0.21"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:b710176fa9295a53c1d4bceea81b71d026a6827da20822637f11910e792bafdbf396ea9c74b79af90c8020bebd558b0c83a1a3a87234a92f29b87cdc05e47c21#npm:11.1.2"],
