@@ -2,7 +2,6 @@ import type { Todo } from '../types/todo';
 
 export type State = { todos: Todo[]; isLoading: boolean };
 export type Action =
-  | { type: 'LOADING'; isLoading: boolean }
   | { type: 'FETCH_TODOS'; todos: Todo[] }
   | { type: 'CREATE_TODO'; todo: Todo }
   | { type: 'TOGGLE_TODO'; id: number; completed: boolean }
@@ -15,12 +14,6 @@ export const initialTodoValue = {
 
 export function todoReducer(state: State, action: Action) {
   switch (action.type) {
-    case 'LOADING': {
-      return {
-        ...state,
-        isLoading: action.isLoading,
-      };
-    }
     case 'FETCH_TODOS': {
       return {
         ...state,
