@@ -1,11 +1,17 @@
 import type { NextPage } from 'next';
-import { TodoForm } from '../components/Todo/Form';
+import { Stack, Heading } from '@chakra-ui/react';
+import { TodoForm, TodoList } from '../components/Todo';
+import { TodoProvider } from '../contexts/TodoContext';
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <TodoForm />
-    </div>
+    <Stack maxW="md" mx="auto" mt="10">
+      <Heading>Todo List</Heading>
+      <TodoProvider>
+        <TodoForm />
+        <TodoList />
+      </TodoProvider>
+    </Stack>
   );
 };
 
