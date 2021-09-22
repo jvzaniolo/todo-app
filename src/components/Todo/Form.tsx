@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AddIcon } from '@chakra-ui/icons';
 import { Button, HStack } from '@chakra-ui/react';
-import { Input } from '../../layout/Input';
-import { useTodo, createTodo } from '../../contexts/TodoContext';
+import { Input } from '@layout/Input';
+import { useTodo, createTodo } from '@contexts/TodoContext';
 
 const schema = yup.object().shape({
   text: yup.string().required('Text is required'),
@@ -42,7 +42,7 @@ export function TodoForm() {
         colorScheme="blue"
         leftIcon={<AddIcon />}
         textTransform="uppercase"
-        isLoading={isValidating || isSubmitting || state.isLoading}
+        isLoading={isValidating || isSubmitting}
       >
         Add todo
       </Button>

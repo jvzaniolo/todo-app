@@ -1,16 +1,11 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 import { HStack, Checkbox, IconButton } from '@chakra-ui/react';
-import { useTodo } from '../../contexts/TodoContext';
-import type { Action } from '../../reducers/todoReducer';
-import type { Todo } from '../../types/todo';
+import { useTodo } from '@contexts/TodoContext';
+import type { Todo, Dispatch } from '@typings/todo';
 
 interface TodoItemProps extends Todo {
-  onToggle(
-    dispatch: (action: Action) => void,
-    id: number,
-    completed: boolean,
-  ): void;
-  onDelete(dispatch: (action: Action) => void, id: number): void;
+  onToggle(dispatch: Dispatch, id: number, completed: boolean): void;
+  onDelete(dispatch: Dispatch, id: number): void;
 }
 
 export function TodoItem(props: TodoItemProps) {

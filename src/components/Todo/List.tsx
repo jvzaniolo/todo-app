@@ -5,7 +5,7 @@ import {
   fetchTodos,
   toggleTodo,
   removeTodo,
-} from '../../contexts/TodoContext';
+} from '@contexts/TodoContext';
 import { TodoItem } from './Item';
 
 export function TodoList() {
