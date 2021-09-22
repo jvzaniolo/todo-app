@@ -1,11 +1,7 @@
 import { Stack } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import {
-  useTodo,
-  fetchTodos,
-  toggleTodo,
-  removeTodo,
-} from '@contexts/TodoContext';
+import { useTodo } from '@contexts/TodoContext';
+import { fetchTodos, toggleTodo, removeTodo } from '@helpers/todoHelper';
 import { TodoItem } from './Item';
 
 export function TodoList() {

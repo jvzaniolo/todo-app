@@ -20,7 +20,8 @@
       "@contexts/*": ["contexts/*"],
       "@reducers/*": ["reducers/*"],
       "@services/*": ["services/*"],
-      "@typings/*": ["typings/*"]
+      "@typings/*": ["typings/*"],
+      "@helpers/*": ["helpers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

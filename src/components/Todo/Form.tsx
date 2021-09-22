@@ -1,15 +1,10 @@
 import type { SubmitHandler } from 'react-hook-form';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { AddIcon } from '@chakra-ui/icons';
 import { Button, HStack } from '@chakra-ui/react';
 import { Input } from '@layout/Input';
-import { useTodo, createTodo } from '@contexts/TodoContext';
-
-const schema = yup.object().shape({
-  text: yup.string().required('Text is required'),
-});
+import { useTodo } from '@contexts/TodoContext';
+import { createTodo } from '@helpers/todoHelper';
 
 type FormValues = { text: string };
 
@@ -19,13 +14,12 @@ export function TodoForm() {
     handleSubmit,
     setValue,
     formState: { errors, isValidating, isSubmitting },
-  } = useForm<FormValues>({
-    resolver: yupResolver(schema),
-  });
-  const { state, dispatch } = useTodo();
+  } = useForm<FormValues>();
+  const { dispatch } = useTodo();
 
   const onSubmit: SubmitHandler<FormValues> = async data => {
     setValue('text', '');
+
     await createTodo(dispatch, data.text);
   };
 
@@ -34,7 +28,7 @@ export function TodoForm() {
       <Input
         placeholder="Walk the dog"
         error={errors.text}
-        {...register('text')}
+        {...register('text', { required: 'Text is required' })}
       />
       <Button
         w="40"

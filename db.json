@@ -1,3 +1,16 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "text": "Walk the dog",
+      "id": 1
+    },
+    {
+      "text": "Take out the trash",
+      "id": 2
+    },
+    {
+      "text": "Go to grocery store",
+      "id": 3
+    }
+  ]
 }
