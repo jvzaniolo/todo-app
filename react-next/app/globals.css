@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+:root {
+	color-scheme: light dark;
+}
+
+body {
+	height: 100dvh;
+	font-family: 'Inter', sans-serif;
+	display: flex;
+	justify-content: center;
+}
+
+main {
+	max-width: var(--container-xl);
+	width: 100%;
+	padding: 24px 32px;
+}
+
+h1 {
+	font-size: var(--text-4xl);
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+input[type='text'] {
+	padding: 8px 12px;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--color-zinc-800);
+	font-size: var(--text-sm);
+}
+
+button.solid {
+	padding: 8px 12px;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--color-zinc-300);
+	font-size: var(--text-sm);
+	background-color: white;
+	color: black;
+	font-weight: medium;
+}

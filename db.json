@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": "8d26",
+      "content": "Learn Vue",
+      "done": true
+    },
+    {
+      "id": "9a11",
+      "content": "Learn Svelte",
+      "done": false
+    },
+    {
+      "id": "3547",
+      "content": "Learn Solid",
+      "done": true
+    },
+    {
+      "id": "6c6c",
+      "content": "Learn React",
+      "done": false
+    }
+  ]
+}
