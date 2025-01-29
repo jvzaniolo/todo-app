@@ -12,6 +12,7 @@ export async function getTodos() {
 }
 
 export async function createTodo(content: string) {
+	await new Promise((resolve) => setTimeout(resolve, 2000))
 	const res = await fetch('http://localhost:3333/todos', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -32,9 +33,7 @@ export async function deleteTodo(todoId: string) {
 export async function updateTodo(todoId: string, done: boolean) {
 	const res = await fetch('http://localhost:3333/todos/' + todoId, {
 		method: 'PATCH',
-		body: JSON.stringify({
-			done,
-		}),
+		body: JSON.stringify({ done }),
 	})
 	const data: Todo = await res.json()
 	return data

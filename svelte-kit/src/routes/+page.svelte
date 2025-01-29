@@ -1,16 +1,11 @@
 <script lang="ts">
 	import '../app.css'
 	import { enhance } from '$app/forms'
-	import { updateTodo } from '$lib/data'
 	import type { PageProps } from './$types'
+	import Todo from './todo.svelte'
 
 	let { data, form }: PageProps = $props()
 	let newTodo = $state<string | null>(null)
-	let deleting = $state<string[]>([])
-
-	async function toggleTodo(todoId: string, done: boolean) {
-		await updateTodo(todoId, done)
-	}
 </script>
 
 <form
@@ -44,42 +39,14 @@
 	Loading todos...
 {:then todos}
 	<ul>
-		{#each todos.filter((todo) => !deleting.includes(todo.id)) as todo (todo.id)}
-			<li>
-				<form
-					method="POST"
-					action="?/delete"
-					use:enhance={() => {
-						deleting = [...deleting, todo.id]
-						return async ({ update }) => {
-							await update()
-							deleting = deleting.filter((id) => id !== todo.id)
-						}
-					}}
-				>
-					<label>
-						<input
-							name="done"
-							type="checkbox"
-							checked={todo.done}
-							onchange={() => toggleTodo(todo.id, !todo.done)}
-						/>
-						<span>{todo.content}</span>
-					</label>
-					<input type="hidden" name="todoId" value={todo.id} />
-					<button aria-label="Delete todo">X</button>
-				</form>
-			</li>
+		{#each todos as todo (todo.id)}
+			<Todo id={todo.id} content={todo.content} done={todo.done} />
 		{/each}
 
 		{#if newTodo}
-			<li class={{ 'animate-pulse': !!newTodo }}>
-				<label>
-					<input id="temporary-todo" type="checkbox" />
-					<span>{newTodo}</span>
-				</label>
-				<button aria-label="Delete todo">X</button>
-			</li>
+			<div class={{ 'animate-pulse': !!newTodo }}>
+				<Todo id="temporary" content={newTodo} done={false} />
+			</div>
 		{/if}
 	</ul>
 {:catch error}

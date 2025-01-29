@@ -8,7 +8,7 @@
     {
       "id": "9a11",
       "content": "Learn Svelte",
-      "done": false
+      "done": true
     },
     {
       "id": "3547",
@@ -18,7 +18,7 @@
     {
       "id": "6c6c",
       "content": "Learn React",
-      "done": false
+      "done": true
     }
   ]
 }
