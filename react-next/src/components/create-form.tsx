@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState } from 'react'
-import { createTodo } from '../actions'
+import { createTodo } from '@/lib/server/actions'
 
 export function CreateForm() {
 	const [state, createAction, isPending] = useActionState(createTodo, null)
@@ -19,9 +19,6 @@ export function CreateForm() {
 					autoComplete="off"
 					className="w-full"
 				/>
-				<button type="submit" disabled={isPending} className="solid whitespace-nowrap">
-					{isPending ? 'Creating...' : 'Create todo'}
-				</button>
 			</form>
 			{!state?.success && <p className="italic">{state?.error}</p>}
 		</>

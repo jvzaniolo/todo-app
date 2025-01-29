@@ -1,11 +1,9 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { fetcher } from './fetcher'
 
 export async function toggleTodo(id: string, done: boolean) {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-	await fetcher('/todos/' + id, {
+	await fetch('http://localhost:3333/todos/' + id, {
 		method: 'PATCH',
 		body: JSON.stringify({ done }),
 	})
@@ -33,7 +31,7 @@ export async function createTodo(
 		}
 	}
 
-	await fetcher('/todos', {
+	await fetch('http://localhost:3333/todos', {
 		method: 'POST',
 		body: JSON.stringify({ content: String(content), done: false }),
 	})
@@ -52,7 +50,7 @@ export async function deleteTodo(state: any, formData: FormData) {
 		throw new Error('Id is required')
 	}
 
-	await fetcher('/todos/' + id, {
+	await fetch('http://localhost:3333/todos/' + id, {
 		method: 'DELETE',
 	})
 
